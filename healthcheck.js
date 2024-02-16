@@ -26,6 +26,7 @@ async function checkWebsite() {
           '--no-sandbox',
           '--disable-setuid-sandbox',
         ],
+        executablePath: "/usr/bin/google-chrome-stable",
       });
       const page = await browser.newPage();
 
