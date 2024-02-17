@@ -148,23 +148,23 @@ async function checkWebsite() {
                 
                 console.log("Message: Order placed, redirecting....")
 
-                await delay(30000);
+                await delay(10000);
 
-                // const errorMessageSelector = 'ul.woocommerce-error li';
-                // await page.waitForSelector(errorMessageSelector);
+                const errorMessageSelector = 'ul.woocommerce-error li';
+                await page.waitForSelector(errorMessageSelector);
               
-                // // Extract and log the text content of the error message element
-                // const errorMessage = await page.$eval(errorMessageSelector, (element) => {
-                //   return element.textContent.trim();
-                // });
+                // Extract and log the text content of the error message element
+                const errorMessage = await page.$eval(errorMessageSelector, (element) => {
+                  return element.textContent.trim();
+                });
 
               
-                // console.log('Error message:', errorMessage);
+                console.log('Error message:', errorMessage);
 
                 console.log("Message: Currently on: " + page.url())
-                await page.waitForNavigation({
-                  timeout: 300000
-                });
+                // await page.waitForNavigation({
+                //   timeout: 300000
+                // });
                 await page.waitForSelector('#header-merchant-name',{
                   timeout: 300000
               });
