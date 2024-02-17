@@ -194,8 +194,9 @@ async function checkWebsite() {
 Website Health     :   200    ✅ 
 TuriTop popup       :   UP     ✅
 Popup Load Time : ${popupLoadTime}s  🕰
-Checkup Time       :   ${istDate}
 PhonePe Gateway :   Works  ✅
+Checkup Time       :   ${istDate}
+
 
 The flow is completely healthy!
 `;
@@ -208,8 +209,9 @@ The flow is completely healthy!
 Website Health     :   200    ✅ 
 TuriTop popup       :   UP     ✅
 Popup Load Time : ${popupLoadTime}s  🕰
-Checkup Time       :   ${istDate}
 PhonePe Gateway    : Not reached ❗️
+Checkup Time       :   ${istDate}
+
 
 There might be some error in placing an order!
 `;
