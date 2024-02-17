@@ -139,11 +139,19 @@ async function checkWebsite() {
                 await page.type("#billing_postcode", "686868");
                 await page.type("#billing_email", "prashik@quantastic.in");
                 await page.click("#terms");
-                await delay(5000);
+                await delay(10000);
                 await page.type("#billing_phone", "+918281288271");
-                await delay(5000);
-                await page.click("#terms");
-                await delay(5000);
+                await delay(10000);
+                const isCheckboxChecked = await page.$eval('#terms', (checkbox) => checkbox.checked);
+
+                if (!isCheckboxChecked) {
+                  // If the checkbox is not checked, click on it
+                  await page.click('#terms');
+                  console.log('Checkbox clicked.');
+                } else {
+                  console.log('Checkbox is already checked.');
+                }
+                await delay(7000);
                 await page.click("#place_order");
                 
                 console.log("Message: Order placed, redirecting....")
