@@ -148,6 +148,18 @@ async function checkWebsite() {
                 
                 console.log("Message: Order placed, redirecting....")
 
+                await delay(5000);
+
+                const errorMessageSelector = 'ul.woocommerce-error li';
+                await page.waitForSelector(errorMessageSelector);
+              
+                // Extract and log the text content of the error message element
+                const errorMessage = await page.$eval(errorMessageSelector, (element) => {
+                  return element.textContent.trim();
+                });
+              
+                console.log('Error message:', errorMessage);
+
                 console.log("Message: Currently on: " + page.url())
                 // await page.waitForNavigation({
                 //   timeout: 300000
