@@ -146,20 +146,16 @@ async function checkWebsite() {
                 await delay(5000);
                 await page.click("#place_order");
                 
-                const inputValue = await page.evaluate(() => {
-                  // Replace '#billing_phone' with the actual selector of your input field
-                  const inputElement = document.querySelector('#billing_phone');
-                  return inputElement ? inputElement.value : null;
-                });
-              
-                console.log('Input field value:', inputValue);
-                
                 console.log("Message: Order placed, redirecting....")
 
                 console.log("Message: Currently on: " + page.url())
-                await page.waitForNavigation({
+                // await page.waitForNavigation({
+                //   timeout: 300000
+                // });
+                await page.waitForSelector('#header-merchant-name',{
                   timeout: 300000
-                });
+              });
+
                 console.log("Message: Currently on: " + page.url())
                 await delay(30000);
                 console.log("Message: Currently on: " + page.url())
