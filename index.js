@@ -103,7 +103,9 @@ async function checkWebsite() {
                 console.log("Message: Date selected, waiting....")
 
                 await page.waitForSelector(
-                    ".turitop_booking_system_times.turitop_booking_system_times_classic"
+                    ".turitop_booking_system_times.turitop_booking_system_times_classic", {
+                      timeout: 60000
+                  }
                 );
 
                 await page.click(
@@ -122,7 +124,9 @@ async function checkWebsite() {
                 // const newPagePromise = new Promise((resolve) => browser.once('targetcreated', target => resolve(target.page())));
                 // await Promise.all([page.click('.turitop_booking_system_button_event.lightbox-button-turitop-wc.lightbox-button-turitop-wc-calendar-classic'), newPagePromise]);
 
-                await page.waitForSelector("#billing_first_name");
+                await page.waitForSelector("#billing_first_name", {
+                  timeout: 60000
+              });
                 console.log("Message: Billing page loaded, filling details now....")
 
                 await delay(5000);
@@ -146,9 +150,11 @@ async function checkWebsite() {
                 console.log("Message: Order placed, redirecting....")
 
 
-                await page.waitForNavigation();
+                await page.waitForNavigation({
+                  timeout: 60000
+              });
 
-                await delay(20000);
+                await delay(30000);
 
                 const currentUrl = page.url();
                 
