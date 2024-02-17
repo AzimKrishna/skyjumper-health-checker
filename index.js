@@ -19,6 +19,7 @@ const TelegramBot = require("node-telegram-bot-api");
 // Replace 'YOUR_TELEGRAM_BOT_TOKEN' and 'YOUR_CHAT_ID' with your actual Telegram bot token and chat ID
 const botToken = "6766661829:AAFjucZOvcM-eMgyLQjIkgvX_cHBv4mgWPc";
 const chatId = "558902547";
+const devId="558902547";
 const telegramBot = new TelegramBot(botToken, {
     polling: false
 });
@@ -158,28 +159,27 @@ async function checkWebsite() {
 
                 await delay(10000);
 
-                const errorMessageSelector = 'ul.woocommerce-error li';
-                await page.waitForSelector(errorMessageSelector);
+                // const errorMessageSelector = 'ul.woocommerce-error li';
+                // await page.waitForSelector(errorMessageSelector);
               
-                // Extract and log the text content of the error message element
-                const errorMessage = await page.$eval(errorMessageSelector, (element) => {
-                  return element.textContent.trim();
-                });
+                // // Extract and log the text content of the error message element
+                // const errorMessage = await page.$eval(errorMessageSelector, (element) => {
+                //   return element.textContent.trim();
+                // });
 
               
-                console.log('Error message:', errorMessage);
+                // console.log('Error message:', errorMessage);
 
-                console.log("Message: Currently on: " + page.url())
+                // console.log("Message: Currently on: " + page.url())
                 // await page.waitForNavigation({
                 //   timeout: 300000
                 // });
-                await page.waitForSelector('#header-merchant-name',{
-                  timeout: 300000
-              });
+              //   await page.waitForSelector('#header-merchant-name',{
+              //     timeout: 300000
+              // });
 
                 console.log("Message: Currently on: " + page.url())
                 await delay(30000);
-                console.log("Message: Currently on: " + page.url())
                 const currentUrl = page.url();
                 console.log("Message: Currently on: " + page.url())
                 if (currentUrl.includes('mercury-t2.phonepe.com')) {
@@ -247,7 +247,7 @@ await browser.close();
     } catch (error) {
         // Handle any errors and send error message to Telegram
         // await browser.close();
-        telegramBot.sendMessage(chatId, `Error: ${error.message}`);
+        telegramBot.sendMessage(devId, `Error: ${error.message}`);
     }
 }
 
