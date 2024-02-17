@@ -4,7 +4,7 @@ const TelegramBot = require("node-telegram-bot-api");
 
 // Replace 'YOUR_TELEGRAM_BOT_TOKEN' and 'YOUR_CHAT_ID' with your actual Telegram bot token and chat ID
 const botToken = "6766661829:AAFjucZOvcM-eMgyLQjIkgvX_cHBv4mgWPc";
-const chatId = "-4180419083";
+const chatId = "-1001857871064";
 const telegramBot = new TelegramBot(botToken, { polling: false });
 
 async function checkWebsite() {
