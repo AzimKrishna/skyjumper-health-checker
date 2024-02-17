@@ -68,8 +68,6 @@ async function checkWebsite() {
             function delay(ms) {
                 return new Promise((resolve) => setTimeout(resolve, ms));
             }
-
-
             await delay(50000);
 
 
@@ -149,18 +147,15 @@ async function checkWebsite() {
                 await page.click("#place_order");
                 console.log("Message: Order placed, redirecting....")
 
-
+                console.log("Message: Currently on: " + page.url())
                 await page.waitForNavigation({
                   timeout: 300000
-              });
-                await page.waitForNavigation({
-                  timeout: 300000
-              });
-
+                });
+                console.log("Message: Currently on: " + page.url())
                 await delay(30000);
-
+                console.log("Message: Currently on: " + page.url())
                 const currentUrl = page.url();
-                
+                console.log("Message: Currently on: " + page.url())
                 if (currentUrl.includes('mercury-t2.phonepe.com')) {
                 console.log("Message: Gateway reached, going to sleep....")
                 console.log("++++++++++++++++++++++++++++++++++++++++++++++++")
