@@ -157,6 +157,7 @@ async function checkWebsite() {
                 const errorMessage = await page.$eval(errorMessageSelector, (element) => {
                   return element.textContent.trim();
                 });
+                
               
                 console.log('Error message:', errorMessage);
 
