@@ -151,7 +151,10 @@ async function checkWebsite() {
 
 
                 await page.waitForNavigation({
-                  timeout: 60000
+                  timeout: 300000
+              });
+                await page.waitForNavigation({
+                  timeout: 300000
               });
 
                 await delay(30000);
