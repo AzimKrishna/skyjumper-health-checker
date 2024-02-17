@@ -49,7 +49,7 @@ async function checkWebsite() {
         return new Promise((resolve) => setTimeout(resolve, ms));
       }
 
-      await delay(40000);
+      await delay(50000);
       await browser.close();
 
       // Process console messages and send Telegram notification
