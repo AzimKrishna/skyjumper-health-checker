@@ -23,10 +23,15 @@ async function checkWebsite() {
       // Step 2: Perform actions after confirming the website is loading correctly
       const browser = await puppeteer.launch({
         args: [
-          '--no-sandbox',
-          '--disable-setuid-sandbox',
+          "--disable-setuid-sandbox",
+          "--no-sandbox",
+          "--single-process",
+          "--no-zygote",
         ],
-        executablePath: "/opt/chrome/headless/chrome",
+        executablePath:
+          process.env.NODE_ENV === "production"
+            ? process.env.PUPPETEER_EXECUTABLE_PATH
+            : puppeteer.executablePath(),
       });
       const page = await browser.newPage();
 
