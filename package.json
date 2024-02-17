@@ -1,7 +1,7 @@
 {
-  "main": "index2.js",
+  "main": "index.js",
   "scripts": {
-    "start": "node index2"
+    "start": "node index"
   },
   "dependencies": {
     "axios": "^1.6.7",

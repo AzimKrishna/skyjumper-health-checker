@@ -233,7 +233,7 @@ await browser.close();
 //     return randomInterval;
 // }
 
-
+checkWebsite();
 // Set a random interval between 1 and 2 hours
 setInterval(() => {
     checkWebsite();

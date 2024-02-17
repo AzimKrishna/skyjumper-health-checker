@@ -1,10 +1,24 @@
+const express = require('express');
+const app = express();
+const port = process.env.PORT || 3000;
+
+app.get('/', (req, res) => {
+  res.send('Hello from the keep-alive server!');
+});
+
+app.listen(port, () => {
+  console.log(`Server is running on port ${port}`);
+});
+
+
+
 const axios = require("axios");
 const puppeteer = require("puppeteer");
 const TelegramBot = require("node-telegram-bot-api");
 
 // Replace 'YOUR_TELEGRAM_BOT_TOKEN' and 'YOUR_CHAT_ID' with your actual Telegram bot token and chat ID
 const botToken = "6766661829:AAFjucZOvcM-eMgyLQjIkgvX_cHBv4mgWPc";
-const chatId = "-1001857871064";
+const chatId = "558902547";
 const telegramBot = new TelegramBot(botToken, { polling: false });
 
 async function checkWebsite() {
