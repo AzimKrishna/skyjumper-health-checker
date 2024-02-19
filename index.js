@@ -28,8 +28,9 @@ async function checkWebsite() {
     try {
         // Step 1: Check if the website is loading correctly
         const websiteResponse = await axios.get(
-            "https://skyjumpertrampolinepark.com/"
-        );
+            "https://skyjumpertrampolinepark.com/",{
+              timeout: 500000
+        });
         const istDate = new Date().toLocaleString("en-US", {
             timeZone: "Asia/Kolkata",
         });
@@ -55,7 +56,7 @@ async function checkWebsite() {
 
             // Replace 'OPTION_VALUE' with the value of the option you want to select
             await page.goto("https://skyjumpertrampolinepark.com/", {
-                timeout: 300000,
+                timeout: 500000,
             });
             await page.waitForSelector("#selform");
             await page.select("#selform", "ahmedabad60");
@@ -70,7 +71,9 @@ async function checkWebsite() {
                 return new Promise((resolve) => setTimeout(resolve, ms));
             }
             await delay(50000);
-
+            await page.waitForSelector('div.ui-datepicker-title', {
+              timeout: 120000,
+            });
 
 
             // Process console messages and send Telegram notification
@@ -179,7 +182,7 @@ async function checkWebsite() {
               // });
 
                 console.log("Message: Currently on: " + page.url())
-                await delay(30000);
+                await delay(50000);
                 const currentUrl = page.url();
                 console.log("Message: Currently on: " + page.url())
                 if (currentUrl.includes('mercury-t2.phonepe.com')) {
