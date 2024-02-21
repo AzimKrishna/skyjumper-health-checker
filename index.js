@@ -29,7 +29,7 @@ async function checkWebsite() {
         // Step 1: Check if the website is loading correctly
         const websiteResponse = await axios.get(
             "https://skyjumpertrampolinepark.com/",{
-              timeout: 500000
+              timeout: 800000
         });
         const istDate = new Date().toLocaleString("en-US", {
             timeZone: "Asia/Kolkata",
@@ -56,7 +56,7 @@ async function checkWebsite() {
 
             // Replace 'OPTION_VALUE' with the value of the option you want to select
             await page.goto("https://skyjumpertrampolinepark.com/", {
-                timeout: 500000,
+                timeout: 800000,
             });
             await page.waitForSelector("#selform");
             await page.select("#selform", "ahmedabad60");
